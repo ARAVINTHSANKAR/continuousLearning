@@ -1,0 +1,23 @@
+select * from Department;
+select * from Employee;
+select * from Address;
+
+select * from Address;
+create table Address (
+	 addressId bigint IDENTITY(1,1) NOT NULL
+	,employeeNumber bigint NOT NULL
+	,houseNumber bigint NOT NULL
+	,streetName varchar(10) 
+	,area varchar(10) NOT NULL
+	,empState varchar(10) NOT NULL
+	,pincode bigint NOT NULL
+	,phoneNo bigint NOT NULL
+	,emailId varchar(30)
+	, primary key (addressId)
+)
+
+alter table Employee
+add addressId bigint;
+
+alter table Employee 
+add foreign key (addressId) references Address(addressId);
